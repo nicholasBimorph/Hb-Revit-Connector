@@ -6,27 +6,35 @@ using HbConnector.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using HB.RestAPI.Core.Models.Factories;
 
 namespace HbRevitConnector.Models.Harvesters
 {
     internal class RoomShellHarvester : IDataHarvester
     {
-        private readonly ISerializer _serializer;
-        private readonly IGeometryExtractor<Solid, Room> _roomShellExtractor;
+       
+        private readonly IGeometryExtractor<Solid, Room> _roomsolidExtractor;
         private readonly Document _document;
+        private readonly IGeometryConverter<Solid> _meshConverter;
+        private readonly DataNodeFactory _dataNodeFactory;
+
 
         internal RoomShellHarvester(
-            ISerializer serializer, 
-            IGeometryExtractor<Solid,Room> roomShellExtractor, 
+            DataNodeFactory dataNodeFactory, 
+            IGeometryExtractor<Solid,Room> roomsolidExtractor,
+            IGeometryConverter<Solid> meshConverter,
             Document document)
         {
-            _serializer = serializer;
+           
 
             _document = document;
 
-            _roomShellExtractor = roomShellExtractor;
+            _roomsolidExtractor = roomsolidExtractor;
+
+            _meshConverter = meshConverter;
+
+            _dataNodeFactory = dataNodeFactory;
+
         }
 
 
@@ -36,9 +44,21 @@ namespace HbRevitConnector.Models.Harvesters
             .OfCategory(BuiltInCategory.OST_Rooms).WhereElementIsNotElementType()
             .Cast<Room>().ToList();
 
-           var solids = _roomShellExtractor.Extract(rooms);
+           var solids = _roomsolidExtractor.Extract(rooms);
 
-            throw new NotImplementedException();
+           var dataNodes = new List<DataNode>(solids.Count);
+
+           foreach (var solid in solids)
+           {
+              var hbMesh =  _meshConverter.ToHbType(solid);
+
+             var dataNode =  _dataNodeFactory.Create(hbMesh);
+
+
+             dataNodes.Add(dataNode);
+           }
+
+           return dataNodes;
         }
     }
 }

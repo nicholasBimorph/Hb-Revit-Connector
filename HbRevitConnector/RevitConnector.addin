@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>HB Revit Connector</Name>
+    <Assembly>..\HbRevitConnector\HbRevitConnector.dll</Assembly>
+    <AddInId>34f19f5c-0f1c-46b1-a6c8-0816fb5cb1d0</AddInId>
+    <FullClassName>HbRevitConnector.Main.RevitConnectorApplication</FullClassName>
+    <VendorId>HAWKINSBROWN</VendorId>
+    <VendorDescription>
+  
+    </VendorDescription>
+  </AddIn>
+</RevitAddIns>

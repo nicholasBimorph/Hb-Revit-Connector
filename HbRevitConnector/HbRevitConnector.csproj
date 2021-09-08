@@ -81,6 +81,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Main\RevitConnectorApplication.cs" />
+    <Compile Include="Models\Main\RevitConnectorButton.cs" />
+    <Compile Include="ViewModel\Commands\UploadDataCommand.cs" />
+    <Compile Include="ViewModel\RevitConnectorViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -94,6 +98,7 @@
     <Compile Include="Models\Converters\RevitMeshConverter.cs" />
     <Compile Include="Models\Extractors\RoomSolidExtractor.cs" />
     <Compile Include="Models\Harvesters\RoomShellHarvester.cs" />
+    <Compile Include="Models\Main\RevitConnectorMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -116,6 +121,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="RevitConnector.addin" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

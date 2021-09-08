@@ -11,19 +11,23 @@ namespace HbRevitConnector.Models.Converters
 {
     internal class RevitMeshConverter : IGeometryConverter<Solid>
     {
-        public IHbObject ToHbType(Solid geometry)
+        private readonly SolidOrShellTessellationControls _controls;
+
+        internal RevitMeshConverter()
         {
-           
-            var controls = new SolidOrShellTessellationControls()
+            _controls = new SolidOrShellTessellationControls()
             {
                 Accuracy = 0.03,
                 LevelOfDetail = 0.1,
                 MinAngleInTriangle = 3 * Math.PI / 180.0,
                 MinExternalAngleBetweenTriangles = 0.2 * Math.PI
             };
+        }
 
-
-            var triangulatedShell = SolidUtils.TessellateSolidOrShell(geometry, controls);
+        public IHbObject ToHbType(Solid geometry)
+        {
+            
+            var triangulatedShell = SolidUtils.TessellateSolidOrShell(geometry, _controls);
 
 
             var component = triangulatedShell.GetShellComponent(0);
