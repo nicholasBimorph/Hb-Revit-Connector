@@ -41,7 +41,6 @@ namespace HbRevitConnector.Models.Main
         /// <returns>Indicates if the external application completes its work successfully.</returns>
         public Result OnShutdown(UIControlledApplication application)
         {
-
             return Result.Succeeded;
         }
     }
