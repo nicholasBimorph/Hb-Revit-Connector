@@ -10,10 +10,10 @@ namespace HbRevitConnector.ViewModel
 {
     internal class RevitConnectorViewModel
     {
-        public ICommand RoomShellHarvesterCommand { get; }
+        public ICommand UploadDataCommand { get; }
         internal RevitConnectorViewModel(IDataHarvester roomShellHarvester)
         {
-
+            
         }
     }
 }

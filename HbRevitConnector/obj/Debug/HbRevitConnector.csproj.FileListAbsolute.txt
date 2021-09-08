@@ -1,8 +1,6 @@
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\HbRevitConnector.dll.config
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\HbRevitConnector.dll
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\HbRevitConnector.pdb
-C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\HB.RestAPI.Core.dll
-C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\HB.RestAPI.Core.pdb
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\MainWindow.g.cs
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\HbRevitConnector_MarkupCompile.cache
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\HbRevitConnector_MarkupCompile.lref
@@ -11,6 +9,5 @@ C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitCo
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\HbRevitConnector.Properties.Resources.resources
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\HbRevitConnector.csproj.GenerateResource.cache
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\HbRevitConnector.csproj.CoreCompileInputs.cache
-C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\HbRevitConnector.csproj.CopyComplete
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\HbRevitConnector.dll
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\HbRevitConnector.pdb

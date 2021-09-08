@@ -7,12 +7,15 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Architecture;
 using Autodesk.Revit.UI;
 using HB.RestAPI.Core.Interfaces;
+using HB.RestAPI.Core.Models;
 using HB.RestAPI.Core.Models.Factories;
 using HB.RestAPI.Core.Services;
 using HbConnector.Core.Interfaces;
+using HbConnector.Core.Settings;
 using HbRevitConnector.Models.Converters;
 using HbRevitConnector.Models.Extractors;
 using HbRevitConnector.Models.Harvesters;
+using HB.RestAPI.Core.Settings;
 
 namespace HbRevitConnector.Models.Main
 {
@@ -23,6 +26,7 @@ namespace HbRevitConnector.Models.Main
         private  IDataHarvester _roomShellHarvester;
         private DataNodeFactory _dataNodeFactory;
         private IGeometryConverter<Solid> _meshConverter;
+        private  HBApiClient _hbApiClient;
 
         public Document CADAppDocument { get; }
 
@@ -35,7 +39,13 @@ namespace HbRevitConnector.Models.Main
         {
             try
             {
-                _roomShellHarvester.Harvest();
+               var dataNodes=  _roomShellHarvester.Harvest();
+
+                var applicationDataContainer = new ApplicationDataContainer(dataNodes, TemporaryProjectStream.ProjectStream);
+
+               _hbApiClient.RequestFinished += _hbApiClient_RequestFinished;
+
+                _hbApiClient.AsyncPostRequest(HbApiEndPoints.AsyncPostEndPoint, applicationDataContainer);
             }
             catch (Exception e)
             {
@@ -46,12 +56,20 @@ namespace HbRevitConnector.Models.Main
             return Result.Succeeded;
         }
 
+        private void _hbApiClient_RequestFinished(object sender, string e)
+        {
+            _hbApiClient.RequestFinished -= _hbApiClient_RequestFinished;
+
+            string response = e;
+        }
+
         public void StartUp()
         {
-           
             _roomSolidExtractor = new RoomSolidExtractor();
 
             _serializer = new JsonSerializer();
+
+            _hbApiClient = new HBApiClient(_serializer);
 
             _dataNodeFactory = new DataNodeFactory(_serializer);
 

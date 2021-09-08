@@ -45,6 +45,7 @@
     </Reference>
     <Reference Include="HB.RestAPI.Core">
       <HintPath>..\..\..\RESTAPISample\HB.RestAPI.Core\bin\Debug\netstandard2.0\HB.RestAPI.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="HbConnector.Core">
       <HintPath>..\..\..\HbConnector.Core\HbConnector.Core\bin\Debug\HbConnector.Core.dll</HintPath>
@@ -128,17 +129,14 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-
   <Target Name="AfterBuild">
     <ItemGroup>
       <SourceDlls Include="$(TargetDir)*.dll" />
       <SourcePdbs Include="$(TargetDir)*.pdb" />
       <SourceAddin Include="$(ProjectDir)RevitConnector.addin" />
     </ItemGroup>
-    <RemoveDir Directories="$(AppData)\Autodesk\Revit\Addins\HbRevitConnector\" />
     <Copy SourceFiles="@(SourceDlls)" DestinationFolder="$(AppData)\Autodesk\Revit\Addins\HbRevitConnector\" />
     <Copy SourceFiles="@(SourcePdbs)" DestinationFolder="$(AppData)\Autodesk\Revit\Addins\HbRevitConnector\" />
     <Copy SourceFiles="@(SourceAddin)" DestinationFolder="$(AppData)\Autodesk\Revit\Addins\2021\" />
   </Target>
-
 </Project>
