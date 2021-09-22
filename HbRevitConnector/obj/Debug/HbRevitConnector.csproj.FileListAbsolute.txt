@@ -11,3 +11,16 @@ C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitCo
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\HbRevitConnector.csproj.CoreCompileInputs.cache
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\HbRevitConnector.dll
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\HbRevitConnector.pdb
+C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\MaterialDesignColors.dll
+C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\MaterialDesignColors.pdb
+C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\Models\Views\RevitConnectorWindow.g.cs
+C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\Models\Views\RevitConnectorWindow.baml
+C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\HbRevitConnector.csproj.CopyComplete
+C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\MongoDB.Bson.dll
+C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\MongoDB.Bson.xml
+C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\HbRevitConnector.csproj.AssemblyReference.cache

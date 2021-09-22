@@ -16,6 +16,8 @@ using HbRevitConnector.Models.Converters;
 using HbRevitConnector.Models.Extractors;
 using HbRevitConnector.Models.Harvesters;
 using HB.RestAPI.Core.Settings;
+using HbRevitConnector.Models.Views;
+using HbRevitConnector.ViewModel;
 
 namespace HbRevitConnector.Models.Main
 {
@@ -39,13 +41,12 @@ namespace HbRevitConnector.Models.Main
         {
             try
             {
-               var dataNodes=  _roomShellHarvester.Harvest();
 
-                var applicationDataContainer = new ApplicationDataContainer(dataNodes, TemporaryProjectStream.ProjectStream);
+                var viewModel = new RevitConnectorViewModel(_roomShellHarvester, _hbApiClient);
 
-               _hbApiClient.RequestFinished += _hbApiClient_RequestFinished;
+                var window = new RevitConnectorWindow(viewModel);
 
-                _hbApiClient.AsyncPostRequest(HbApiEndPoints.AsyncPostEndPoint, applicationDataContainer);
+                window.Show();
             }
             catch (Exception e)
             {
@@ -56,12 +57,6 @@ namespace HbRevitConnector.Models.Main
             return Result.Succeeded;
         }
 
-        private void _hbApiClient_RequestFinished(object sender, string e)
-        {
-            _hbApiClient.RequestFinished -= _hbApiClient_RequestFinished;
-
-            string response = e;
-        }
 
         public void StartUp()
         {
