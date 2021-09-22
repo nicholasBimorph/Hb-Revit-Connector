@@ -96,6 +96,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\DataHarvesterEngine.cs" />
     <Compile Include="Models\Harvesters\AreaHarvester.cs" />
     <Compile Include="Models\Main\RevitConnectorApplication.cs" />
     <Compile Include="Models\Main\RevitConnectorButton.cs" />

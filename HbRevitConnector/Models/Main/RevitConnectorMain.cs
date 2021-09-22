@@ -26,6 +26,7 @@ namespace HbRevitConnector.Models.Main
         private IGeometryExtractor<Solid, Room> _roomSolidExtractor;
         private ISerializer _serializer;
         private  IDataHarvester _roomShellHarvester;
+        private DataHarvesterEngine _dataHarvesterEngine;
         private DataNodeFactory _dataNodeFactory;
         private IGeometryConverter<Solid> _meshConverter;
         private  HBApiClient _hbApiClient;
@@ -42,7 +43,7 @@ namespace HbRevitConnector.Models.Main
             try
             {
 
-                var viewModel = new RevitConnectorViewModel(_roomShellHarvester, _hbApiClient);
+                var viewModel = new RevitConnectorViewModel(_dataHarvesterEngine,_hbApiClient);
 
                 var window = new RevitConnectorWindow(viewModel);
 
@@ -62,19 +63,30 @@ namespace HbRevitConnector.Models.Main
         {
             _roomSolidExtractor = new RoomSolidExtractor();
 
+            _meshConverter = new RevitMeshConverter();
+
             _serializer = new JsonSerializer();
 
             _hbApiClient = new HBApiClient(_serializer);
 
             _dataNodeFactory = new DataNodeFactory(_serializer);
 
-            _meshConverter = new RevitMeshConverter();
 
-            _roomShellHarvester = new RoomShellHarvester(
+           var roomShellHarvester = new RoomShellHarvester(
                 _dataNodeFactory, 
                 _roomSolidExtractor, 
                 _meshConverter,
                 this.CADAppDocument);
+
+           var areaHarvester = new AreaHarvester(this.CADAppDocument, _dataNodeFactory);
+
+           var dataHarvesters = new List<IDataHarvester>
+           {
+               roomShellHarvester, 
+               areaHarvester
+           };
+
+           _dataHarvesterEngine = new DataHarvesterEngine(dataHarvesters);
         }
 
     }

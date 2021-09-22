@@ -23,4 +23,3 @@ C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitCo
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\MongoDB.Bson.xml
 C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\nicho\Documents\Bimorph\Clients\HB\Workshops\HbRevitConnector\HbRevitConnector\HbRevitConnector\obj\Debug\HbRevitConnector.csproj.AssemblyReference.cache

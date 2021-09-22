@@ -10,22 +10,21 @@ using HB.RestAPI.Core.Services;
 using HB.RestAPI.Core.Settings;
 using HbConnector.Core.Interfaces;
 using HbConnector.Core.Settings;
+using HbRevitConnector.Models;
 
 namespace HbRevitConnector.ViewModel.Commands
 {
     internal class UploadDataCommand : ICommand
     {
-        private readonly IDataHarvester _roomShellHarvester;
-
         private readonly HBApiClient _hbApiClient;
-
+        private readonly DataHarvesterEngine _dataHarvesterEngine;
         private RevitConnectorViewModel _revitConnectorViewModel;
 
         private const string AsyncPostEndpoint = HbApiEndPoints.AsyncPostEndPoint;
 
-        internal UploadDataCommand(IDataHarvester roomShellHarvester, HBApiClient hbApiClient)
+        internal UploadDataCommand(DataHarvesterEngine dataHarvesterEngine, HBApiClient hbApiClient)
         {
-            _roomShellHarvester = roomShellHarvester;
+            _dataHarvesterEngine = dataHarvesterEngine;
 
             _hbApiClient = hbApiClient;
         }
@@ -46,7 +45,7 @@ namespace HbRevitConnector.ViewModel.Commands
         {
             _revitConnectorViewModel = (RevitConnectorViewModel) parameter;
 
-           var dataNodes =  _roomShellHarvester.Harvest();
+           var dataNodes = _dataHarvesterEngine.Run();
 
            var applicationDataContainer = new ApplicationDataContainer(dataNodes, TemporaryProjectStream.ProjectStream);
 

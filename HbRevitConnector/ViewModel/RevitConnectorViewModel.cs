@@ -11,6 +11,7 @@ using Autodesk.Revit.DB;
 using HB.RestAPI.Core.Services;
 using HbConnector.Core.Interfaces;
 using HbRevitConnector.Annotations;
+using HbRevitConnector.Models;
 using HbRevitConnector.ViewModel.Commands;
 using Visibility = System.Windows.Visibility;
 
@@ -33,9 +34,9 @@ namespace HbRevitConnector.ViewModel
             }
         }
 
-        internal RevitConnectorViewModel(IDataHarvester roomShellHarvester, HBApiClient hbApiClient)
+        internal RevitConnectorViewModel(DataHarvesterEngine dataHarvesterEngine, HBApiClient hbApiClient)
         {
-            this.UploadDataCommand = new UploadDataCommand(roomShellHarvester, hbApiClient);
+            this.UploadDataCommand = new UploadDataCommand(dataHarvesterEngine, hbApiClient);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
