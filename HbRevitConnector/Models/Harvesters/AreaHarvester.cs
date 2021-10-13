@@ -48,7 +48,13 @@ namespace HbRevitConnector.Models.Harvesters
                 {
                     if (parameterName == AreaParameterNames.AreaParameterName)
                     {
+                        var parameter = area.LookupParameter(parameterName);
+
+                        if(parameter==null) continue;
+
+                        
                         string parameterValue = area.LookupParameter(parameterName).AsValueString();
+
 
                         var property = new Property(parameterName, parameterValue);
 
@@ -57,6 +63,10 @@ namespace HbRevitConnector.Models.Harvesters
 
                     else
                     {
+                        var parameter = area.LookupParameter(parameterName);
+
+                        if (parameter == null) continue;
+
                         string parameterValue = area.LookupParameter(parameterName).GetParameterValueAsString();
 
                         var property = new Property(parameterName, parameterValue);
