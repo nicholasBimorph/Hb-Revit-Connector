@@ -19,6 +19,8 @@ namespace HbRevitConnector.ViewModel
 {
     public class RevitConnectorViewModel: INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private Visibility _uploadButtonProgressBarVis = Visibility.Hidden ;
         public ICommand UploadDataCommand { get; }
 
@@ -34,13 +36,12 @@ namespace HbRevitConnector.ViewModel
             }
         }
 
-        internal RevitConnectorViewModel(DataHarvesterEngine dataHarvesterEngine, HBApiClient hbApiClient)
+        internal RevitConnectorViewModel(DataHarvesterEngine dataHarvesterEngine, ApplicationServices applicationServices)
         {
-            this.UploadDataCommand = new UploadDataCommand(dataHarvesterEngine, hbApiClient);
+            this.UploadDataCommand = new UploadDataCommand(dataHarvesterEngine, applicationServices.WebClientService,this);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

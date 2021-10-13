@@ -9,7 +9,8 @@ using HB.RestAPI.Core.Models;
 using HB.RestAPI.Core.Models.Factories;
 using HB.RestAPI.Core.Models.Types;
 using HbConnector.Core.Interfaces;
-
+using HbRevitConnector.Extensions;
+using HbRevitConnector.Settings;
 
 namespace HbRevitConnector.Models.Harvesters
 {
@@ -17,15 +18,18 @@ namespace HbRevitConnector.Models.Harvesters
     {
         private readonly Document _document;
         private readonly DataNodeFactory _dataNodeFactory;
+        private readonly ApplicationServices _applicationServices;
+        private const double mmFactor = 304;
 
-        internal AreaHarvester(Document document, DataNodeFactory dataNodeFactory)
+
+        internal AreaHarvester(Document document, DataNodeFactory dataNodeFactory, ApplicationServices applicationServices)
         {
              _document = document;
 
              _dataNodeFactory = dataNodeFactory;
-        }
 
-        private const double mmFactor = 304;
+             _applicationServices = applicationServices;
+        }
 
         public IList<DataNode> Harvest()
         {
@@ -35,15 +39,38 @@ namespace HbRevitConnector.Models.Harvesters
 
             var dataNodes = new List<DataNode>(areas.Count);
 
+            var properties = new List<Property>();
+
             foreach (var area in areas)
             {
-                var paramName = new Property("Area Name", area.Name);
+                double areaValue;
+                foreach (string parameterName in _applicationServices.ParameterNames)
+                {
+                    if (parameterName == AreaParameterNames.AreaParameterName)
+                    {
+                        string parameterValue = area.LookupParameter(parameterName).AsValueString();
 
-                var paramPerimeter = new Property("Perimeter ", area.Perimeter * mmFactor);
+                        var property = new Property(parameterName, parameterValue);
 
-                var properties = new Property[] { paramName, paramPerimeter };
+                        properties.Add(property);
+                    }
 
-                var hbArea = new HbArea(area.Area * mmFactor, properties);
+                    else
+                    {
+                        string parameterValue = area.LookupParameter(parameterName).GetParameterValueAsString();
+
+                        var property = new Property(parameterName, parameterValue);
+
+                        properties.Add(property);
+                    }
+                }
+                //var paramName = new Property("Area Name", area.Name);
+
+                //var paramPerimeter = new Property("Perimeter ", area.Perimeter * mmFactor);
+
+                //var properties = new Property[] { paramName, paramPerimeter };
+
+                var hbArea = new HbArea(0, properties);
 
                var dataNode =  _dataNodeFactory.Create(hbArea);
 

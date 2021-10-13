@@ -18,15 +18,20 @@ namespace HbRevitConnector.ViewModel.Commands
     {
         private readonly HBApiClient _hbApiClient;
         private readonly DataHarvesterEngine _dataHarvesterEngine;
-        private RevitConnectorViewModel _revitConnectorViewModel;
+        private readonly RevitConnectorViewModel _revitConnectorViewModel;
 
         private const string AsyncPostEndpoint = HbApiEndPoints.AsyncPostEndPoint;
 
-        internal UploadDataCommand(DataHarvesterEngine dataHarvesterEngine, HBApiClient hbApiClient)
+        internal UploadDataCommand(
+            DataHarvesterEngine dataHarvesterEngine, 
+            HBApiClient hbApiClient,
+            RevitConnectorViewModel revitConnectorViewModel)
         {
             _dataHarvesterEngine = dataHarvesterEngine;
 
             _hbApiClient = hbApiClient;
+
+            _revitConnectorViewModel = revitConnectorViewModel;
         }
        
 
@@ -43,9 +48,7 @@ namespace HbRevitConnector.ViewModel.Commands
         /// <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to <see langword="null" />.</param>
         public async void Execute(object parameter)
         {
-            _revitConnectorViewModel = (RevitConnectorViewModel) parameter;
-
-           var dataNodes = _dataHarvesterEngine.Run();
+            var dataNodes = _dataHarvesterEngine.Run();
 
            var applicationDataContainer = new ApplicationDataContainer(dataNodes, TemporaryProjectStream.ProjectStream);
 

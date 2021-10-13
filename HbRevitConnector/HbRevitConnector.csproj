@@ -96,6 +96,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationServices.cs" />
+    <Compile Include="Extensions\ParameterExtensions.cs" />
     <Compile Include="Models\DataHarvesterEngine.cs" />
     <Compile Include="Models\Harvesters\AreaHarvester.cs" />
     <Compile Include="Models\Main\RevitConnectorApplication.cs" />
@@ -104,6 +106,7 @@
       <DependentUpon>RevitConnectorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Settings\AreaParameterNames.cs" />
     <Compile Include="ViewModel\Commands\UploadDataCommand.cs" />
     <Compile Include="ViewModel\RevitConnectorViewModel.cs" />
     <Page Include="MainWindow.xaml">

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HbRevitConnector.Models.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="RevitConnectorWindow" Height="200" Width="200"
+        Title="RevitConnectorWindow" Height="300" Width="400"
         WindowStyle="None" 
       
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
