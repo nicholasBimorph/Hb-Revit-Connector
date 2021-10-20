@@ -52,7 +52,7 @@ namespace HbRevitConnector.ViewModel.Commands
 
            var applicationDataContainer = new ApplicationDataContainer(dataNodes, TemporaryProjectStream.ProjectStream);
 
-           _revitConnectorViewModel.UploadButtonProgressBarVis = Visibility.Visible;
+           _revitConnectorViewModel.UploadButtonProgressBarVis = true;
 
             _hbApiClient.RequestFinished += _hbApiClient_RequestFinished;
 
@@ -64,7 +64,7 @@ namespace HbRevitConnector.ViewModel.Commands
         {
             _hbApiClient.RequestFinished -= _hbApiClient_RequestFinished;
 
-            _revitConnectorViewModel.UploadButtonProgressBarVis = Visibility.Hidden;
+            _revitConnectorViewModel.UploadButtonProgressBarVis = false;
         }
 
         /// <summary>Occurs when changes occur that affect whether or not the command should execute.</summary>

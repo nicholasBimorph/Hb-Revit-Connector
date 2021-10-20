@@ -39,6 +39,17 @@
 
         </ResourceDictionary>
     </Window.Resources>
+
+    <!--<Grid
+        Width="124">
+        <Button
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            materialDesign:ButtonProgressAssist.Value="-1"
+            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+            materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+            Content="Indeterminate"
+            Margin="2,0" />
+    </Grid>-->
     <Grid
         Margin="5">
 
@@ -49,7 +60,7 @@
             Command="{Binding UploadDataCommand}"
             Style="{StaticResource MaterialDesignRaisedButton}"
             materialDesign:ButtonProgressAssist.Value="-1"
-            materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding UploadButtonProgressBarVis}"
+            materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding UploadButtonProgressBarVis, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             materialDesign:ButtonProgressAssist.IsIndeterminate="True">
 
             <materialDesign:PackIcon

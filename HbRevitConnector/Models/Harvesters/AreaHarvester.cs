@@ -22,9 +22,9 @@ namespace HbRevitConnector.Models.Harvesters
         private const double mmFactor = 304;
 
 
-        internal AreaHarvester(Document document, DataNodeFactory dataNodeFactory, ApplicationServices applicationServices)
+        internal AreaHarvester(DataNodeFactory dataNodeFactory, ApplicationServices applicationServices)
         {
-             _document = document;
+             _document = applicationServices.Document;
 
              _dataNodeFactory = dataNodeFactory;
 
@@ -54,7 +54,6 @@ namespace HbRevitConnector.Models.Harvesters
 
                         
                         string parameterValue = area.LookupParameter(parameterName).AsValueString();
-
 
                         var property = new Property(parameterName, parameterValue);
 

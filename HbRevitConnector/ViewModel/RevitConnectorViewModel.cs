@@ -21,10 +21,10 @@ namespace HbRevitConnector.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private Visibility _uploadButtonProgressBarVis = Visibility.Hidden ;
+        private bool _uploadButtonProgressBarVis = false ;
         public ICommand UploadDataCommand { get; }
 
-        public Visibility UploadButtonProgressBarVis
+        public bool UploadButtonProgressBarVis
         {
             get => _uploadButtonProgressBarVis;
 

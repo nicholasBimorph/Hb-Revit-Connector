@@ -77,7 +77,7 @@ namespace HbRevitConnector.Models.Main
                 meshConverter,
                 this.CADAppDocument);
 
-           var areaHarvester = new AreaHarvester(this.CADAppDocument, _dataNodeFactory);
+           var areaHarvester = new AreaHarvester( _dataNodeFactory, _applicationServices);
 
            var dataHarvesters = new List<IDataHarvester>
            {
