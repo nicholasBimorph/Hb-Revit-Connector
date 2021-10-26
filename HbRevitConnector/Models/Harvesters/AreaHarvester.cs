@@ -39,11 +39,10 @@ namespace HbRevitConnector.Models.Harvesters
 
             var dataNodes = new List<DataNode>(areas.Count);
 
-            var properties = new List<Property>();
-
             foreach (var area in areas)
             {
-                double areaValue;
+                var properties = new List<Property>();
+
                 foreach (string parameterName in _applicationServices.ParameterNames)
                 {
                     if (parameterName == AreaParameterNames.AreaParameterName)
@@ -52,7 +51,6 @@ namespace HbRevitConnector.Models.Harvesters
 
                         if(parameter==null) continue;
 
-                        
                         string parameterValue = area.LookupParameter(parameterName).AsValueString();
 
                         var property = new Property(parameterName, parameterValue);
@@ -73,11 +71,6 @@ namespace HbRevitConnector.Models.Harvesters
                         properties.Add(property);
                     }
                 }
-                //var paramName = new Property("Area Name", area.Name);
-
-                //var paramPerimeter = new Property("Perimeter ", area.Perimeter * mmFactor);
-
-                //var properties = new Property[] { paramName, paramPerimeter };
 
                 var hbArea = new HbArea(0, properties);
 
